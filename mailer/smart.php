@@ -28,7 +28,6 @@ $mail->addAddress('resrost@gmail.com');     // Кому отправляется
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-
 $mail->Subject = 'Данные';
 $mail->Body    = '
 		Пользователь оставил данные <br> 
