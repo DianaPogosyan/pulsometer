@@ -14,6 +14,9 @@ $(document).ready(function() {
         ]
     });
 
+
+    // ТАБЫ(КАТАЛОГ С СОРТИРОВКОЙ ПО КАТЕГОРИЯМ)
+
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
         $(this)
           .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
@@ -23,6 +26,8 @@ $(document).ready(function() {
       });
       
 
+
+    // СДВИГАНИЕ ЭЛЕМЕНТОВ КАТАЛОГА ВЛЕВО
 
     function toggleSlide(item) {
         $(item).each(function(i) {
@@ -38,7 +43,7 @@ $(document).ready(function() {
     toggleSlide('.catalog-item__back');
 
 
-    // modal
+    //МОДАЛЬНЫЕ ОКНА
 
     $('[data-modal=consultation]').on('click', function() {
         $('.overlay, #consultation').fadeIn('slow');
@@ -51,6 +56,7 @@ $(document).ready(function() {
         })
     });
 
+    // ПЛАГИН ДЛЯ ВАЛИДАЦИИ
 
     function validateForms(form){
         $(form).validate({
@@ -83,6 +89,14 @@ $(document).ready(function() {
     validateForms('#consultation form');
     validateForms('#order form');
 
+    // ФОРМАТИРОВАНИЕ ПОЛЯ ДЛЯ ВВОДА НОМЕРА ТЕЛЕФОНА
+
+    $('input[name=phone]').mask("+ 7 (999) 999-99-99");
+
+
+
+    // ФРОНТЕНД ЧАСТЬ ФОРМЫ, ОТПРАВКА АЯКС ЗАПРОСА
+
  $('form').submit(function(e) {
         e.preventDefault();
         $.ajax({
@@ -99,14 +113,18 @@ $(document).ready(function() {
         return false;
     });
 
-    $('input[name=phone]').mask("+ 7 (999) 999-99-99");
 
+
+    // ЗАКРЫТИЕ МОДАЛЬНЫХ ОКОН
     
     $('.modal__close').on('click', function() {
         $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
     });
   
     
+
+
+    // ФУНКЦИЯ ДЛЯ ОСУЩЕСТВЛЕНИЯ ПЛАВНОГО СКРОЛЛА
 
     $(window).scroll(function(){
         if($(this).scrollTop()>700){
@@ -121,6 +139,8 @@ $(document).ready(function() {
         return false;
     });
 
+
+    //ИНИЦИАЛИЗАЦИЯ БИБЛИОТЕКИ С АНИМАЦИЯМИ
 
     new WOW().init();
 
